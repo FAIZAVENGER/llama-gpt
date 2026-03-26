@@ -1,0 +1,55 @@
+{
+  "name": "leadsoc-ai",
+  "version": "1.0.0",
+  "description": "LeadSOC AI Desktop Application",
+  "author": "LeadSOC",
+  "private": true,
+  "main": "electron.js",
+  "homepage": "./",
+  "dependencies": {
+    "axios": "^1.6.5",
+    "lucide-react": "^0.309.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1",
+    "react-router-dom": "^6.21.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "remark-gfm": "^4.0.0"
+  },
+  "scripts": {
+    "start": "PORT=3005 HOST=0.0.0.0 react-scripts start",
+    "build": "react-scripts build",
+    "electron:dev": "concurrently \"npm start\" \"wait-on http://localhost:3005 && electron .\"",
+    "electron:build": "npm run build && electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "react-scripts": "5.0.1",
+    "wait-on": "^7.0.1"
+  },
+  "proxy": "http://localhost:5010",
+  "build": {
+    "appId": "com.leadsoc.ai",
+    "productName": "LeadSOC AI",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "electron.js",
+      "preload.js"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": "dmg",
+      "icon": "build/icon.icns"
+    }
+  },
+  "browserslist": {
+    "production": [">0.2%", "not dead"],
+    "development": ["last 1 chrome version"]
+  }
+}

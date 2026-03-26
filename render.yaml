@@ -1,0 +1,38 @@
+services:
+  # ─── LLaMA API Service ────────────────────────────────────────────────────
+  - type: web
+    name: llama-gpt-api
+    runtime: docker
+    dockerfilePath: ./api/Dockerfile
+    dockerContext: .
+    plan: standard          # needs ≥ 2 GB RAM to load the model
+    healthCheckPath: /docs  # llama-cpp-python exposes Swagger at /docs
+    envVars:
+      - key: MODEL
+        value: /models/nous-hermes-llama-2-7b.ggmlv3.q4_0.bin
+      - key: MODEL_DOWNLOAD_URL
+        value: https://huggingface.co/TheBloke/Nous-Hermes-Llama-2-7B-GGML/resolve/main/nous-hermes-llama-2-7b.ggmlv3.q4_0.bin
+      - key: N_GQA
+        value: "1"
+      - key: USE_MLOCK
+        value: "0"          # mlock requires privileged mode; disable on Render
+
+  # ─── Chat UI Service ──────────────────────────────────────────────────────
+  - type: web
+    name: llama-gpt-ui
+    runtime: docker
+    dockerfilePath: ./ui/no-wait.Dockerfile   # skip the wait-for-API step
+    dockerContext: ./ui
+    plan: starter
+    envVars:
+      - key: OPENAI_API_KEY
+        value: sk-XXXXXXXXXXXXXXXXXXXX       # dummy key – llama-cpp-python doesn't need a real one
+      - key: OPENAI_API_HOST
+        fromService:
+          name: llama-gpt-api
+          type: web
+          property: host                     # Render injects the internal URL automatically
+      - key: DEFAULT_MODEL
+        value: /models/nous-hermes-llama-2-7b.ggmlv3.q4_0.bin
+      - key: NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT
+        value: "You are a helpful and friendly AI assistant. Respond very concisely."

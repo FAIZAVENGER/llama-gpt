@@ -1,0 +1,27 @@
+**/.DS_Store
+models/*.bin
+models/*.gguf
+**/.todo
+
+# Dependencies
+node_modules/
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+
+# Generated documents
+generated_documents/
+
+# Environment secrets
+.env
+.env.local
+.env*.local
+
+# Uploads
+uploads/*
+!uploads/.gitkeep
+
+# Build output
+dist/
+build/
+.next/

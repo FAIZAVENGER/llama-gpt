@@ -1,0 +1,110 @@
+👤 You [14:55]:
+hii there
+
+---
+
+🤖 AI [14:55]:
+Hi! How can I assist you today?
+
+---
+
+👤 You [14:55]:
+can you please guide me step by step how to prepare biryani
+
+---
+
+🤖 AI [14:56]:
+I'd be happy to help you with preparing delicious biryani. Here's a step-by-step guide:
+
+**Ingredients:**
+
+* 1 cup basmati rice
+* 1 pound boneless chicken or vegetables (your choice)
+* 2 medium onions, chopped
+* 2 cloves garlic, minced
+* 1 tablespoon ginger paste
+* 1 teaspoon cumin seeds
+* 1 teaspoon coriander powder
+* 1 teaspoon turmeric powder
+* 1 teaspoon red chili powder
+* Salt, to taste
+* 2 tablespoons ghee or oil
+* 2 cups water
+
+**Step-by-Step Instructions:**
+
+1. **Soak the rice**: Rinse and soak the basmati rice in water for 30 minutes. Drain and set aside.
+2. **Marinate the protein**: Mix together chicken/vegetables, cumin seeds, coriander powder, turmeric powder, red chili powder, garlic, ginger paste, and salt. Let it marinate for at least 30 minutes.
+3. **Heat oil in a pan**: Heat ghee or oil in a large pan over medium heat.
+4. **Sauté onions**: Add chopped onions and sauté until they turn golden brown (5-7 minutes).
+5. **Add the protein**: Add the marinated chicken/vegetables and cook until they're cooked through (6-8 minutes).
+6. **Layer rice and protein**: In a large, heavy-bottomed pot or Dutch oven, create a layer of rice, followed by a layer of protein mixture, and then repeat this process 2 more times.
+7. **Add water and cover**: Add 2 cups of water to the pot and cover it with a tight-fitting lid.
+8. **Cook for 15-20 minutes**: Cook over low heat for 15-20 minutes or until the rice is cooked and fluffy.
+9. **Fluff and serve**: Fluff the biryani with a fork and garnish with chopped fresh cilantro, if desired.
+
+**Tips and Variations:**
+
+* Use a non-stick pot to prevent rice from sticking.
+* You can add other spices like cardamom, cinnamon, or cloves to give it an extra flavor.
+* For a vegan version, replace chicken with tofu or paneer and omit the ghee.
+* Experiment with different types of protein, vegetables, or nuts for added variety.
+
+I hope this helps! Do you have any questions about preparing biryani?
+
+---
+
+👤 You [11:13]:
+can u generate a code for armstrong
+
+---
+
+🤖 AI [11:14]:
+**Armstrong Number Checker**
+
+An Armstrong number is a number that is equal to the sum of cubes of its digits. For example, 371 is an Armstrong number since 3*3*3 + 7*7*7 + 1*1*1 = 371.
+
+Here's a Python function to check if a given number is an Armstrong number:
+
+```python
+def is_armstrong(n):
+    """
+    Checks if a given number is an Armstrong number.
+    
+    Args:
+        n (int): The number to check.
+    
+    Returns:
+        bool: True if the number is an Armstrong number, False otherwise.
+    """
+
+    # Convert the number to a string to easily access its digits
+    str_n = str(n)
+    
+    # Calculate the number of digits in the number
+    num_digits = len(str_n)
+    
+    # Initialize the sum of cubes of digits
+    sum_cubes = 0
+    
+    # Iterate over each digit in the number
+    for digit in str_n:
+        # Add the cube of the current digit to the sum
+        sum_cubes += int(digit) ** num_digits
+    
+    # Check if the sum of cubes is equal to the original number
+    return n == sum_cubes
+
+
+# Example usage:
+if __name__ == "__main__":
+    numbers_to_check = [371, 1234, 500000]
+    
+    for num in numbers_to_check:
+        print(f"{num} is an Armstrong number: {is_armstrong(num)}")
+```
+
+This code defines a function `is_armstrong` that takes a single argument `n`, which represents the number to check. It converts `n` to a string, calculates the number of digits it has, and then iterates over each digit to calculate the sum of cubes of its digits. Finally, it checks if this sum is equal to the original number.
+
+The example usage demonstrates how to use this function with a list of numbers.
+
