@@ -1,27 +1,28 @@
-**/.DS_Store
-models/*.bin
-models/*.gguf
-**/.todo
-
-# Dependencies
-node_modules/
-backend/venv/
-backend/__pycache__/
-backend/**/__pycache__/
-
-# Generated documents
-generated_documents/
-
-# Environment secrets
+# Environment - NEVER commit
 .env
-.env.local
-.env*.local
+*.env
+backend/.env
 
-# Uploads
-uploads/*
-!uploads/.gitkeep
+# Python
+__pycache__/
+*.pyc
+*.pyo
+backend/venv/
+backend/uploads/
+backend/converted_files/
+backend/generated_documents/
+generated_documents/
+uploads/
 
-# Build output
+# Node
+node_modules/
+frontend/node_modules/
+frontend/build/
 dist/
-build/
-.next/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
