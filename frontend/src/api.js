@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Always use localhost for backend in both development and production
 // Since the backend runs on the same machine as the app
-const API_URL = 'http://localhost:5010';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5010';
 
 console.log('API URL:', API_URL);
 console.log('Environment:', process.env.NODE_ENV);
