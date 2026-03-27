@@ -26,3 +26,12 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Lock files (optional but reduces size)
+package-lock.json
