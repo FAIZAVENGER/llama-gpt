@@ -1,8 +1,5 @@
-// frontend/src/api.js
 import axios from 'axios';
 
-// Always use localhost for backend in both development and production
-// Since the backend runs on the same machine as the app
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5010';
 
 console.log('API URL:', API_URL);
@@ -12,10 +9,10 @@ const api = axios.create({
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true',
   },
 });
 
-// Add token to requests
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -28,7 +25,6 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Add response interceptor for debugging
 api.interceptors.response.use(
   (response) => {
     console.log('API Response:', response.status, response.config.url);
